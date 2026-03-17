@@ -15,8 +15,9 @@ DATABASES = {
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = 'REPLACE_ME'
-
+SECRET_KEY = os.getenv('SECRET_KEY')
+if not SECRET_KEY:
+    raise ValueError("Отсутствует SECRET_KEY")
 TIME_ZONE = 'Europe/Moscow'
 
 USE_TZ = True
